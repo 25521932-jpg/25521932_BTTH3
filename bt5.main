@@ -1,0 +1,29 @@
+#include <iostream>
+#include "cDaThuc.h"
+using namespace std;
+
+int main() {
+    cDaThuc p, q;
+
+    cout << "Nhap da thuc P:\n";
+    p.Nhap();
+
+    cout << "Nhap da thuc Q:\n";
+    q.Nhap();
+
+    cout << "P(x) = "; p.Xuat();
+    cout << "Q(x) = "; q.Xuat();
+
+    double x;
+    cin >> x;
+
+    cout << "P(" << x << ") = " << p.GiaTri(x) << endl;
+
+    cDaThuc tong = p.Cong(q);
+    cDaThuc hieu = p.Tru(q);
+
+    cout << "P + Q = "; tong.Xuat();
+    cout << "P - Q = "; hieu.Xuat();
+
+    return 0;
+}
