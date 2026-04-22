@@ -1,0 +1,42 @@
+#include <iostream>
+#include "cArray.h"
+using namespace std;
+
+int main() {
+    cArray arr;
+    int n, x;
+
+    cout << "Nhap n: ";
+    cin >> n;
+
+    arr.TaoNgauNhien(n);
+
+    cout << "Mang: ";
+    arr.Xuat();
+
+    cout << "Nhap x: ";
+    cin >> x;
+
+    cout << "So lan xuat hien cua " << x << ": " << arr.DemX(x) << endl;
+
+    cout << "Mang co tang dan khong: ";
+    cout << (arr.TangDan() ? "Co" : "Khong") << endl;
+
+    int le = arr.LeNhoNhat();
+    if (le == -1) cout << "Khong co so le\n";
+    else cout << "So le nho nhat: " << le << endl;
+
+    int snt = arr.SNTLonNhat();
+    if (snt == -1) cout << "Khong co SNT\n";
+    else cout << "SNT lon nhat: " << snt << endl;
+
+    arr.SapXepTang();
+    cout << "Tang dan: ";
+    arr.Xuat();
+
+    arr.SapXepGiam();
+    cout << "Giam dan: ";
+    arr.Xuat();
+
+    return 0;
+}
