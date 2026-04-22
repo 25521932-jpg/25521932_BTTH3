@@ -1,0 +1,57 @@
+#include <iostream>
+#include <vector>
+#include "cNhanVienSX.h"
+using namespace std;
+
+int main() {
+    int n;
+    cin >> n;
+
+    vector<cNhanVienSX> ds(n);
+
+    // nhập
+    for (int i = 0; i < n; i++) {
+        ds[i].Nhap();
+    }
+
+    // xuất
+    cout << "Danh sach:\n";
+    for (auto x : ds) x.Xuat();
+
+    // lương thấp nhất
+    int idxMin = 0;
+    for (int i = 1; i < n; i++) {
+        if (ds[i].TinhLuong() < ds[idxMin].TinhLuong())
+            idxMin = i;
+    }
+    cout << "Luong thap nhat:\n";
+    ds[idxMin].Xuat();
+
+    // tổng lương
+    double tong = 0;
+    for (auto x : ds) tong += x.TinhLuong();
+    cout << "Tong luong: " << tong << endl;
+
+    // tuổi cao nhất
+    int idxOld = 0;
+    for (int i = 1; i < n; i++) {
+        if (ds[i].Tuoi() > ds[idxOld].Tuoi())
+            idxOld = i;
+    }
+    cout << "Nhan vien lon tuoi nhat:\n";
+    ds[idxOld].Xuat();
+
+    // sắp xếp tăng dần theo lương
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (ds[i].TinhLuong() > ds[j].TinhLuong()) {
+                swap(ds[i], ds[j]);
+            }
+        }
+    }
+
+    cout << "Sap xep tang dan theo luong:\n";
+    for (auto x : ds) x.Xuat();
+
+    return 0;
+}
