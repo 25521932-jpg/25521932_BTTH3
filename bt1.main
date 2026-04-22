@@ -1,0 +1,31 @@
+#include <iostream>
+#include "cTamGiac.h"
+using namespace std;
+
+int main() {
+    cTamGiac tg;
+
+    tg.Nhap();
+    tg.Xuat();
+
+    tg.KiemTraLoai();
+
+    if (tg.HopLe()) {
+        cout << "Chu vi: " << tg.ChuVi() << endl;
+        cout << "Dien tich: " << tg.DienTich() << endl;
+    }
+
+    tg.TinhTien(1, 1);
+    cout << "Sau tinh tien: ";
+    tg.Xuat();
+
+    tg.PhongTo(2);
+    cout << "Sau phong to: ";
+    tg.Xuat();
+
+    tg.Quay(90);
+    cout << "Sau quay 90 do: ";
+    tg.Xuat();
+
+    return 0;
+}
