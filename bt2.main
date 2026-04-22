@@ -1,0 +1,29 @@
+#include <iostream>
+#include "cDaGiac.h"
+using namespace std;
+
+int main() {
+    cDaGiac dg;
+    dg.Nhap();
+
+    if (!dg.HopLe()) {
+        cout << "Khong phai da giac hop le!";
+        return 0;
+    }
+
+    if (dg.CoDiemTrung()) {
+        cout << "Co diem trung!";
+        return 0;
+    }
+
+    if (dg.ThangHang()) {
+        cout << "Thang hang!";
+        return 0;
+    }
+
+    dg.Xuat();
+    cout << "Chu vi: " << dg.ChuVi() << endl;
+    cout << "Dien tich: " << dg.DienTich() << endl;
+
+    return 0;
+}
